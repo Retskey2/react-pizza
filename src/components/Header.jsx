@@ -1,4 +1,5 @@
 import logoSVG from "../assets/pizza-logo.svg";
+import React from "react";
 import {Button} from "./index";
 
 function Header({ClickBuy}) {

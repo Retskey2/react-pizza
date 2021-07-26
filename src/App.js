@@ -3,6 +3,8 @@ import {Content, Header} from "./components";
 
 function App() {
 
+
+
     const ClickBuy = () => {
         alert('Coming...')
     };

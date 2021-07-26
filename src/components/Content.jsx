@@ -1,3 +1,4 @@
+import React from "react";
 import {Categories} from "./index";
 
 function Content() {
@@ -5,7 +6,9 @@ function Content() {
         <div className="content">
             <div className="container">
                 <div className="content__top">
-                    <Categories items={['Мясные','Вегетарианские','Гриль','Острые','Закрытые']}/>
+                    <Categories
+                        onClick={(pizza)=> console.log(pizza)}
+                        items={['Мясные','Вегетарианские','Гриль','Острые','Закрытые']}/>
                     <div className="sort">
                         <div className="sort__label">
                             <svg
