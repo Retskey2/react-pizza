@@ -1,9 +1,9 @@
 import './scss/app.scss';
-import {Content, Header} from "./components";
+import {Header} from "./components/index";
+import {Cart, Home} from "./pages";
+import {Route} from "react-router-dom";
 
 function App() {
-
-
 
     const ClickBuy = () => {
         alert('Coming...')
@@ -13,7 +13,10 @@ function App() {
         <div>
             <div className="wrapper">
                 <Header ClickBuy={ClickBuy}/>
-                <Content/>
+                <div className="content">
+                    <Route path="/" component={Home} exact/>
+                    <Route path="/cart" component={Cart} exact/>
+                </div>
             </div>
         </div>
     );

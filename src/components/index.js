@@ -1,4 +1,4 @@
-export  {default as Button} from './Button';
-export  {default as Header} from './Header';
-export  {default as Content} from './Content';
-export  {default as Categories} from './Categories';
+export {default as Button} from '../components/Button';
+export {default as Header} from '../components/Header';
+export {default as Categories} from '../components/Categories';
+export {default as SortPopup} from '../components/SortPopup'
