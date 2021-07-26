@@ -1,7 +1,7 @@
-import logoSVG from "../img/pizza-logo.svg";
+import logoSVG from "../assets/pizza-logo.svg";
+import {Button} from "./index";
 
-
-function Header() {
+function Header({ClickBuy}) {
     return (
         <div className="header">
             <div className="container">
@@ -13,9 +13,9 @@ function Header() {
                     </div>
                 </div>
                 <div className="header__cart">
-                    <a href="/cart.html" className="button button--cart">
+                    <Button ClickBuy = {ClickBuy} className ="button--cart">
                         <span>520 ₽</span>
-                        <div className="button__delimiter"></div>
+                        <div className="button__delimiter"/>
                         <svg
                             width="18"
                             height="18"
@@ -46,7 +46,7 @@ function Header() {
                             />
                         </svg>
                         <span>3</span>
-                    </a>
+                    </Button>
                 </div>
             </div>
         </div>

@@ -1,16 +1,20 @@
 import './scss/app.scss';
-import Header from "./components/Header";
-import Content from "./components/Content";
+import {Content, Header} from "./components";
 
 function App() {
-  return (
-    <div >
-      <div className="wrapper">
-        <Header/>
-        <Content/>
-      </div>
-    </div>
-  );
+
+    const ClickBuy = () => {
+        alert('Coming...')
+    };
+
+    return (
+        <div>
+            <div className="wrapper">
+                <Header ClickBuy={ClickBuy}/>
+                <Content/>
+            </div>
+        </div>
+    );
 }
 
 export default App;
