@@ -6,7 +6,7 @@ function SortPopup({items}) {
     // Состояние попапа, начальный параметр visiblePopup это false
     // setVisiblePopup меняет visiblePopup
     const sortRef = useRef(); //Ссылка на Sort блок
-    const activeLabel = items[activeItem];
+    const activeLabel = items[activeItem].name;
 
     const toggleVisiblePopup = () => { // переключатель попапа
         setVisiblePopup(!visiblePopup)
@@ -54,11 +54,11 @@ function SortPopup({items}) {
                 <div className="sort__popup">
                     <ul>
                         {items &&
-                        items.map((filter, index) =>
+                        items.map((obj, index) =>
                             <li className={activeItem === index ? 'active' : ''}
                                 onClick={() => onSelectItem(index)}
-                                key={`${filter}_${index}`}
-                            >{filter}
+                                key={`${obj.type}_${index}`}
+                            >{obj.name}
                             </li>
                         )}
                     </ul>
