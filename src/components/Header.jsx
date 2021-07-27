@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import React from "react";
 import {Button} from "./index";
 
-function Header({ClickBuy}) {
+function Header() {
     return (
         <div className="header">
             <div className="container">

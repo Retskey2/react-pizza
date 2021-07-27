@@ -2,19 +2,26 @@ import './scss/app.scss';
 import {Header} from "./components/index";
 import {Cart, Home} from "./pages";
 import {Route} from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from 'axios'
+
 
 function App() {
+    const [pizzas, setPizzas] = useState([]);
 
-    const ClickBuy = () => {
-        alert('Coming...')
-    };
+    useEffect(() => {
+        axios.get('http://localhost:3000/db.json').then(({ data }) => {
+            setPizzas(data.pizzas);
+        });
+    }, []);
+
 
     return (
         <div>
             <div className="wrapper">
-                <Header ClickBuy={ClickBuy}/>
+                <Header/>
                 <div className="content">
-                    <Route path="/" component={Home} exact/>
+                    <Route path="/" render={() => <Home Items={pizzas}/>} exact/>
                     <Route path="/cart" component={Cart} exact/>
                 </div>
             </div>
@@ -23,3 +30,5 @@ function App() {
 }
 
 export default App;
+
+
