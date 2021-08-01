@@ -6,7 +6,7 @@ import './scss/app.scss';
 import {Header} from "./components/index";
 import {Cart, Home} from "./pages";
 import {Route} from "react-router-dom";
-import setPizza from "./redux/actions/pizza";
+import setPizzas from "./redux/actions/pizza";
 
 
 /*
@@ -21,12 +21,12 @@ function App() {
 class App extends React.Component {
     componentDidMount() {
         axios.get('http://localhost:3000/db.json').then(({data}) => {
-            window.store.dispatch(setPizza(data.pizzas))
+            this.props.SavePizza(data.pizzas)
         });
     }
 
     render() {
-        console.log(this.props,'Пропсы')
+        console.log(this.props)
         return (
             <div>
                 <div className="wrapper">
@@ -41,13 +41,20 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         items: state.pizzas.items,
-    }
+        filter: state.filter
+    };
 };
 
+const mapDispatchToProps = dispatch => {
+    return {
+        SavePizza: (items) => dispatch(setPizzas(items)),
+        dispatch,
+    };
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
