@@ -23,14 +23,17 @@ function Home() {
 
     useEffect(() => {
         dispatch(fetchPizzas(category, sortBy))
+        /* eslint-disable-next-line */
     }, [category, sortBy]);
 
     const onClickCategory = useCallback((index) => {
         dispatch(setCategory(index));
+        /* eslint-disable-next-line */
     }, []);
 
     const onClickSortBy = useCallback((type) => {
         dispatch(setSortBy(type));
+        /* eslint-disable-next-line */
     }, []);
 
     const handleAddPizzaToCart = (obj) => {
@@ -57,7 +60,7 @@ function Home() {
                             <PizzaBlock
                                 onClickAddPizza={handleAddPizzaToCart}
                                 key={obj.id}
-                                cartCount={cartItems[obj.id] && cartItems[obj.id].length}
+                                cartCount={cartItems[obj.id] && cartItems[obj.id].items.length}
                                 {...obj}
                             />
                         ))

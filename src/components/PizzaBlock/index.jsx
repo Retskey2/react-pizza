@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import {Button} from "../index";
 
 
-function Index({id, name, imageUrl, price, types, sizes, onClickAddPizza,cartCount}) {
+function Index({id, name, imageUrl, price, types, sizes, onClickAddPizza, cartCount}) {
     const typeName = ['тонкое', 'традиционное']
     const availableSize = [26, 30, 40]
     const [activeType, setActiveType] = useState(types[0])
     const [activeSize, setActiveSize] = useState(0)
-
 
 
     const setSelectType = (index) => {
@@ -21,7 +20,7 @@ function Index({id, name, imageUrl, price, types, sizes, onClickAddPizza,cartCou
     }
 
     const onAddPizza = () => {
-        const obj ={
+        const obj = {
             id,
             name,
             imageUrl,
@@ -73,7 +72,7 @@ function Index({id, name, imageUrl, price, types, sizes, onClickAddPizza,cartCou
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price} ₽</div>
                 <Button
-                    onClickAddPizza={onAddPizza}
+                    onClick={onAddPizza}
                     className="button--add"
                     outline>
                     <svg
